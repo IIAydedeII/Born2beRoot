@@ -13,7 +13,7 @@ With this project, we become able to set up our own operating system while imple
 ### General Guidelines
 
 - We should use **VirtualBox** or **UTM** as the virtualizor.
-- We choose either the LTS (Latest Stable Version) of **Debian** or **Rocky** as our operating system (no testing/unstable).
+- We choose the latest stable version of either **Debian** or **Rocky** as our operating system (no testing/unstable).
 - A graphical interface is **forbidden** to install, like: _X.org_, _Wayland_ or any other equivalent graphics server. So we should install a minimal set of services.
 - We create a `signature.txt` at the project root to ensure that the VM we created is not modified between evaluations.
 - There should be **no snapshots** at the beginning of the evaluations.
