@@ -224,5 +224,23 @@ usermod -aG sudo <user>
 > **INFO**
 > From this point on, you can continue the VM configuration from your user with `sudo` elevation. The evaluation expects you to be able to set up the VM from your user but I prefer "root" login when managing a server.
 
+### User Management
+
+#### Groups
+
+While we're at it, let's satisfy the group requirement of the subject at hand.
+
+We need to add our user to both "sudo" and "`<login>`42" groups. We already added "sudo" in the previous [`sudo` Setup](#sudo-setup) section, so to create the other one:
+
+```bash
+groupadd <login>42
+```
+
+then add your `<user>` to this group:
+
+```bash
+usermod -aG <login>42 <user>
+```
+
 
 ## Resources
