@@ -132,9 +132,9 @@ Now that our VM is ready, the next step is to install the operating system.
 4. Ensure to install the GRUB loader.
 5. For software selection, only select "SSH server" and "Standard system utilities".
 
-### SSH Setup
+### SSH Server Setup
 
-We can now log into the server, but what if we want to access it remotely? It's time to set up SSH.
+We can now log into the server, but what if we want to access it remotely? It's time to set up SSH server.
 
 Since we have no `sudo` configured yet, log in as root:
 
@@ -148,7 +148,7 @@ and then, check the SSH service status:
 systemctl status ssh
 ```
 
-#### SSH Server Configuration File
+#### Daemon Configuration File
 
 To change the SSH daemon configuration, edit the file located at `/etc/ssh/sshd_config`.
 
