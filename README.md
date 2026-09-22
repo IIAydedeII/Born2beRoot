@@ -189,4 +189,40 @@ ufw allow 4242
 
 so that all incoming networking traffic is blocked except our SSH service.
 
+### `sudo` Setup
+
+**`sudo`** allows a permitted user to execute a command as the superuser or another user. Install:
+
+```bash
+apt install sudo
+```
+
+and then, to modify the configuration file, run the **visudo** utility:
+
+```bash
+visudo
+```
+
+which will ensure that no syntax errors are introduced when modifying.
+
+Add the following to the configuration:
+
+```ini
+Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
+
+Defaults        passwd_tries=3, badpass_message="OOOOooldu pasham"
+Defaults        log_input, log_output, iolog_dir="/var/log/sudo", logfile="/var/log/sudo/sudo.log"
+Defaults        requiretty
+```
+
+Don't forget to grant your `<user>` the `sudo` access by adding your `<user>` to the "sudo" group:
+
+```bash
+usermod -aG sudo <user>
+```
+
+> **INFO**
+> From this point on, you can continue the VM configuration from your user with `sudo` elevation. The evaluation expects you to be able to set up the VM from your user but I prefer "root" login when managing a server.
+
+
 ## Resources
