@@ -78,4 +78,58 @@ The project uses **VirtualBox** as the primary virtualization solution. UTM can 
 
 ## Instructions
 
+The following section provides an overview of the operations. It is up to you to check if the requirements are met and understand why things are done the way they are.
+
+### Choosing the Linux Distribution
+
+> **WARNING**
+> If you're part of the _42 Network_, you might consider different storage options for your files that best suits for your campus workstations, like using the `sgoinfre/` folder or an external drive.
+
+First, we need to get the latest "amd64" ISO image of Debian from [Debian's official website](https://www.debian.org/distrib/netinst).
+
+Then in VirtualBox; create a new VM, name it, specify the downloaded ISO image, and select a storage location. Make sure to check "Skip Unattended Installation".
+
+Now you can allocate more resources for the machine by increasing the 'Base memory' and 'Processor' fields. Try not to overdo and crash your host computer. Check "Pre-allocate Full Size".
+
+### Operating System Installation
+
+Now that our VM is ready, the next step is to install the operating system.
+
+1. Start your VM.
+2. Select "Install".
+3. Continue with the instructions until you see the network configurations.
+4. Set the hostname as specified by the project guidelines. You can skip domain name configuration.
+
+> **INFO**
+> If you're part of the _42 Network_, it is recommended **not to use** real passwords that you use in real life, so you can freely discuss it with your peers while evaluating the upcoming password management section.
+
+5. Set a password for the 'root'.
+6. Configure a user with the login and password information.
+
+#### Disk Partitioning
+
+> **INFO**
+> For disk partitioning, we will fulfill **bonus** requirements. Just a heads up.
+
+1. Select "Guided - use entire disk and set up encrypted LVM".
+2. Select "Separate /home, /var and /tmp partitions".
+3. Set an encryption passphrase.
+4. Adjust the volume group size in guided partitioning to carve out space for a couple more logical volumes.
+5. Make two logical volumes: "srv" and "var-log".
+   1. Head over to "Configure the Logical Volume Manager"
+   2. Create both logical volumes
+   3. Allocate just enough space to distribute the remaining space to both of them
+6. Mount the two volumes
+   1. Select them from the LV list
+   2. Set them both as "Ext4 journaling file system"
+   3. Mount them respectively to `/srv` and `/var/log`.
+
+#### Tidying up
+
+1. Avoid scanning for extra installation media.
+2. Select the default Debian archive mirror and leave the proxy settings blank.
+3. Choose not to participate in the package usage survey. Let's not pollute the survey results.
+4. Ensure to install the GRUB loader.
+5. For software selection, only select "SSH server" and "Standard system utilities".
+
 ## Resources
