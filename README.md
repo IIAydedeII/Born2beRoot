@@ -173,4 +173,20 @@ Back in VirtualBox:
 1. Go to your VM's **Settings (Expert) > Network > Port Forwarding**.
 2. Add a new rule to redirect an available "Host Port" to the "Guest Port (4242)".
 
+### Firewall Setup
+
+To manage and provide network security, we will set up a firewall with **UFW**. First, install:
+
+```bash
+apt install ufw
+```
+
+Then add a rule to allow incoming traffic on port 4242:
+
+```bash
+ufw allow 4242
+```
+
+so that all incoming networking traffic is blocked except our SSH service.
+
 ## Resources
