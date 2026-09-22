@@ -132,4 +132,45 @@ Now that our VM is ready, the next step is to install the operating system.
 4. Ensure to install the GRUB loader.
 5. For software selection, only select "SSH server" and "Standard system utilities".
 
+### SSH Setup
+
+We can now log into the server, but what if we want to access it remotely? It's time to set up SSH.
+
+Since we have no `sudo` configured yet, log in as root:
+
+```bash
+su -
+```
+
+and then, check the SSH service status:
+
+```bash
+systemctl status ssh
+```
+
+#### SSH Server Configuration File
+
+To change the SSH daemon configuration, edit the file located at `/etc/ssh/sshd_config`.
+
+```ini
+#Port 22
+Port 4242
+
+#PermitRootLogin prohibit-password
+PermitRootLogin no
+```
+
+Once done, restart SSH service:
+
+```bash
+systemctl restart ssh
+```
+
+#### VirtualBox Port Forwarding
+
+Back in VirtualBox:
+
+1. Go to your VM's **Settings (Expert) > Network > Port Forwarding**.
+2. Add a new rule to redirect an available "Host Port" to the "Guest Port (4242)".
+
 ## Resources
