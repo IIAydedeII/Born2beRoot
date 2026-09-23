@@ -308,4 +308,29 @@ Again; don't forget to apply the changes manually to both root and existing user
 passwd <user>
 ```
 
+### Periodic Monitoring
+
+Finally, we have to create a simple script called `monitoring.sh` that is written
+in bash.
+
+Also by defining a `cron` job, this script will execute and display some information on all terminals at server startup and every 10 minutes.
+
+#### Writing The `monitoring.sh`
+
+Since this is the most customizable section, I strongly encourage you to write your own script. Trust me, it will be worth the effort.
+
+#### `cron` Job
+
+To add a `cron` job, Configure via:
+
+```bash
+crontab -e
+```
+
+To make it execute the script every 10 minutes, add the following job:
+
+```bash
+*/10 * * * * bash monitoring.sh
+```
+
 ## Resources
