@@ -242,11 +242,11 @@ then add your `<user>` to this group:
 usermod -aG <login>42 <user>
 ```
 
-### Password Policy
+#### Password Policy
 
 There are 2 different behaviors we will modify to manage passwords: password expiry and password quality checking.
 
-#### Expiry
+##### Expiry
 
 We'll modify `/etc/login.defs` file to modify the following definitions:
 
@@ -266,7 +266,7 @@ Make sure to apply the changes manually to both root and existing users, like:
 chage -M 30 -m 2 <user>
 ```
 
-#### Quality Check
+##### Quality Check
 
 To strengthten the password quality policy, we will utilize an authorization module called `pwquality`:
 
