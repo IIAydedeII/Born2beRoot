@@ -242,5 +242,70 @@ then add your `<user>` to this group:
 usermod -aG <login>42 <user>
 ```
 
+### Password Policy
+
+There are 2 different behaviors we will modify to manage passwords: password expiry and password quality checking.
+
+#### Expiry
+
+We'll modify `/etc/login.defs` file to modify the following definitions:
+
+```ini
+#PASS_MAX_DAYS   99999
+#PASS_MIN_DAYS   0
+#PASS_WARN_AGE   7
+
+PASS_MAX_DAYS   30
+PASS_MIN_DAYS   2
+PASS_WARN_AGE   7
+```
+
+Make sure to apply the changes manually to both root and existing users, like:
+
+```bash
+chage -M 30 -m 2 <user>
+```
+
+#### Quality Check
+
+To strengthten the password quality policy, we will utilize an authorization module called `pwquality`:
+
+```bash
+apt install libpam-pwquality
+```
+
+Configuring the plugable module is possible in 2 different ways. We'll go with modifying the `/etc/security/pwquality.conf` file:
+
+```ini
+# difok = 1
+difok = 7
+
+# minlen = 8
+minlen = 10
+
+# dcredit = 0
+dcredit = -1
+
+# ucredit = 0
+ucredit = -1
+
+# lcredit = 0
+lcredit = -1
+
+# maxrepeat = 0
+maxrepeat = 3
+
+# usercheck = 1
+usercheck = 1
+
+# enforce_for_root
+enforce_for_root
+```
+
+Again; don't forget to apply the changes manually to both root and existing users, this time with:
+
+```bash
+passwd <user>
+```
 
 ## Resources
