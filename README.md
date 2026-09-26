@@ -109,7 +109,7 @@ Now that our VM is ready, the next step is to install the operating system.
 #### Disk Partitioning
 
 > **INFO**
-> For disk partitioning, we will fulfill **bonus** requirements. Just a heads up.
+> For disk partitioning, ~~we will fulfill **bonus** requirements~~ **bonus** requirements are not complete yet. Just a heads up.
 
 1. Select "Guided - use entire disk and set up encrypted LVM".
 2. Select "Separate /home, /var and /tmp partitions".
