@@ -342,3 +342,7 @@ To make it execute the script every 10 minutes, add the following job:
 - [Main B2B Guide by _chlimous_](https://github.com/chlimous/42-born2beroot_guide)
 - [Bash Scripting](https://devhints.io/bash)
 - [AWK Cheatsheet](https://quickref.me/awk.html)
+
+### AI Usage
+
+AI was used to suggest small implementation ideas and explain the Linux environment besides the online tools. Generated suggestions were reviewed, tested, modified, and integrated **manually**. No AI was used to generate a code **directly**; all commands were personally checked and implemented.
