@@ -334,3 +334,11 @@ To make it execute the script every 10 minutes, add the following job:
 ```
 
 ## Resources
+
+- [LVM Reference](https://wiki.debian.org/LVM)
+- [User Management and Permissions](https://dev.to/mohammad1105/mastering-user-management-and-permission-in-linux-the-ultimate-guide-3ni)
+- [`sudo` Configuration](https://www.sudo.ws/docs/man/sudoers.man/)
+- [`pwquality` Options](https://linux.die.net/man/5/pwquality.conf)
+- [Main B2B Guide by _chlimous_](https://github.com/chlimous/42-born2beroot_guide)
+- [Bash Scripting](https://devhints.io/bash)
+- [AWK Cheatsheet](https://quickref.me/awk.html)
